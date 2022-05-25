@@ -24,11 +24,12 @@ const Signup = () => {
                     <input  onChange={(e)=>{setpassword(e.target.value)}}type="password" name="" id="" className="form-control"/>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <button onClick={subdata}className="btn btn-success">LOGIN</button>
+                   <button  onClick={subdata}className="btn btn-success">SIGN UP</button>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-               
+              <Link className="" to="/signin">new user click here...</Link>
                 </div>
+                
                 
             </div>
         </div>
