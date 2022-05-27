@@ -12,7 +12,22 @@ const Searchdonor = () => {
                setdata(response.data.data)
            })
    }
-  return (
+   const deleteApiCall=(id)=>{
+    const data={"_id":id}
+   console.log(data)
+   axios.post("http://localhost:4000/api/deletedonor",data).then((response)=>{
+    if(response.data.status=="success")
+    {
+        alert("success")
+    }
+    else
+    {
+        alert("error")
+    }
+   })
+   }
+
+   return (
     <div>
         <div className="container">
     <div className="row">
@@ -47,6 +62,10 @@ const Searchdonor = () => {
                  PASSWORD:
                  <input type="text" value={value.password} className="form-control"/>
                  </div>
+                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <button   onClick={()=>{deleteApiCall(value._id)}} className="bt btn-success">DELETE</button>
+
+                </div>
                              </div>
     })}
     </div>
