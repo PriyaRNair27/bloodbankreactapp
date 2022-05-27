@@ -15,7 +15,24 @@ const View= () => {
           setviewlist(response.data.data) 
           setloadstatus(false)
       })
-    
+      const deleteApiCall=(id)=>{
+        const data={"_id":id}
+       console.log(data)
+       axios.post("http://localhost:4000/api/deletedonor",data).then((response)=>
+       {
+           if(response.data.status=="success")
+           {
+               alert("success")
+           }
+           else
+           {
+               alert("error")
+           }
+       })
+      
+   }
+
+
   return (
     <div>
     
@@ -46,6 +63,7 @@ const View= () => {
       <td>{value.mobile}</td>
       <td>{value.username}</td>
       <td>{value.password}</td>
+      <td> <button   onClick={()=>{deleteApiCall(value._id)}} className="bt btn-success">DELETE</button></td>
       
     </tr>
     })}
