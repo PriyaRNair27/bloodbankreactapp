@@ -1,37 +1,24 @@
-import React from 'react'
+
+import axios from 'axios'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Header from './Header'
 
 const View= () => {
-    var viewlist=[
-        {"name":"anand",
-        "address":"bhavanm",
-        "bloodgroup":"o+ve",
-        "mobilenumber":"9089787889"  ,
-        "username":"anand",
-        "password":"anand12"
-        },
-        {"name":"manju",
-        "address":"bhavanm",
-        "bloodgroup":"ab+ve",
-        "mobilenumber":"9089787889"  ,
-        "username":"manju",
-        "password":"manju12"
-        },
-    
-        
-        {
-            "name":"parvathy",
-        "address":"bhavanm",
-        "bloodgroup":"b+ve",
-        "mobilenumber":"9089787889"  ,
-        "username":"parvathy",
-        "password":"parvathy12" 
-        }
-      ]
+  var  [viewlist,setviewlist]=useState([])
+
+  var [loadstatus,setloadstatus] =useState([])   
+  axios.get("http://localhost:4000/api/viewall").then(
+      (response)=>{
+  
+          console.log(response.data)
+          setviewlist(response.data.data) 
+          setloadstatus(false)
+      })
     
   return (
     <div>
-      <Header/>
+    
 <div className='container'>
           <div className='row'>
             <div className='col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12'>
@@ -56,7 +43,7 @@ const View= () => {
       <td>{value.name}</td>
       <td>{value.address}</td>
       <td>{value.bloodgroup}</td>
-      <td>{value.mobilenumber}</td>
+      <td>{value.mobile}</td>
       <td>{value.username}</td>
       <td>{value.password}</td>
       
@@ -64,6 +51,7 @@ const View= () => {
     })}
   </tbody>
 </table>
+<div><Link to="/">logout</Link></div>
                     </div>
                
 
