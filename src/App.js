@@ -6,6 +6,7 @@ import Signup from './Components/Signup';
 import Signin from './Components/Signin';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import View from './Components/View';
+import Searchdonor from './Components/Searchdonor';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 <Route path="/"exact element={<Signup/>}/>
 <Route path="/signin" exact element={<Signin/>}/>
   <Route path="/view"exact element={<View/>}/>
+  <Route path="/search"exact element={<Searchdonor/>}/>
   
 
   </Routes></BrowserRouter>

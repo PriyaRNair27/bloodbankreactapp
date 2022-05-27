@@ -66,7 +66,8 @@ const Signin = () => {
             
                <div><Link to="/view">view donor</Link></div>
                 </div>
-               
+                <div><Link to="/search">search donor</Link></div>
+                
                 
             </div>
         </div>
